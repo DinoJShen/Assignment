@@ -50,7 +50,8 @@ public class Patterning {
                     count2 = 0;
                 }
             }
-            try (FileOutputStream myOutputFile = new FileOutputStream("myplanetPattern.raw")) {
+            String fileNameOutput = "Patterning_" + fileName;
+            try (FileOutputStream myOutputFile = new FileOutputStream(fileNameOutput)) {
                 int count3 = 0;
                 for (Integer str : finalList) {
                     myOutputFile.write(str);
