@@ -22,8 +22,8 @@ public class Patterning {
     static ArrayList<Integer> thirdRow = new ArrayList<>();
 
     public static void main(String[] args) {
-        String fileName = "planet.raw";
-        int width = 400;
+        String fileName = "chess.raw";
+        int width = 300;
         ArrayList<Integer> finalList = new ArrayList<>();
         try (FileInputStream myInputFile = new FileInputStream(fileName)) {
             int value;
@@ -41,25 +41,10 @@ public class Patterning {
                     count = 0;
                 }
             }
-            int count2 = 0;
-            for (int i = 0; i < finalList.size(); i++) {
-                System.out.print(String.format("%-5s", finalList.get(i)) + " ");
-                count2++;
-                if (count2 > width - 1) {
-                    System.out.println();
-                    count2 = 0;
-                }
-            }
             String fileNameOutput = "Patterning_" + fileName;
             try (FileOutputStream myOutputFile = new FileOutputStream(fileNameOutput)) {
-                int count3 = 0;
                 for (Integer str : finalList) {
                     myOutputFile.write(str);
-                    count3++;
-                    if (count3 > width*3-1) {
-                        myOutputFile.write('\n');
-                        count3 = 0;
-                    }
                 }
                 myOutputFile.close();
             } catch (IOException ex) {
