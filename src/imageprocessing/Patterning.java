@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package halftoning;
+package imageprocessing;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -22,8 +22,8 @@ public class Patterning {
     static ArrayList<Integer> thirdRow = new ArrayList<>();
 
     public static void main(String[] args) {
-        String fileName = "chess.raw";
-        int width = 300;
+        String fileName = "Imgpro.raw";
+        int width = 122;
         ArrayList<Integer> finalList = new ArrayList<>();
         try (FileInputStream myInputFile = new FileInputStream(fileName)) {
             int value;
@@ -93,7 +93,7 @@ public class Patterning {
             firstRow.addAll(Arrays.asList(255, 255, 255));
             secondRow.addAll(Arrays.asList(255, 0, 255));
             thirdRow.addAll(Arrays.asList(255, 255, 255));
-        } else if (value < 255) { // lvl 9
+        } else if (value < 256) { // lvl 9
             firstRow.addAll(Arrays.asList(255, 255, 255));
             secondRow.addAll(Arrays.asList(255, 255, 255));
             thirdRow.addAll(Arrays.asList(255, 255, 255));

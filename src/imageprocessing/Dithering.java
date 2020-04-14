@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package halftoning;
+package imageprocessing;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  *
  * @author ASUS
  */
-public class DitheringPart2 {
+public class Dithering {
 
     static ArrayList<Integer> finalList = new ArrayList<>();
     static ArrayList<Integer> tempList = new ArrayList<>();
@@ -27,15 +27,15 @@ public class DitheringPart2 {
     public static void main(String[] args) {
         String fileName = "chess.raw";
         int width = 300;
-        String fileNameOutput = "Dithering2_" + fileName;
+        String fileNameOutput = "Dithering_" + fileName;
         try (FileInputStream myInputFile = new FileInputStream(fileName)) {
             int count = 0;
-            int row = 0;
             int column = 0;
+            int row = 0 ;
             int dataValue = myInputFile.available();
             while (dataValue > 0) {
                 compare(myInputFile.read(), ditheringFormat[row][column]);
-                if (column == 3) {
+                if (column == 1) {
                     column = 0;
                 } else {
                     column++;
@@ -45,10 +45,10 @@ public class DitheringPart2 {
                 if (count > width - 1) {
                     finalList.addAll(tempList);
                     tempList.clear();
-                    column = 0;
-                    if (row==3){
+                    if (row ==1){
                         row = 0;
-                    }else row++;
+                    } else row ++;
+                    column = 0;
                     count = 0;
                 }
             }
