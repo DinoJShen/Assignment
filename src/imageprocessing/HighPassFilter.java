@@ -5,7 +5,6 @@
  */
 package imageprocessing;
 
-import static imageprocessing.DitheringPart2.finalList;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,7 +13,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author ASUS
+ * @author JShen
  */
 public class HighPassFilter {
 

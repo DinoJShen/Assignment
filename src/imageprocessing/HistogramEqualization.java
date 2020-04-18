@@ -16,7 +16,7 @@ import java.util.stream.IntStream;
 
 /**
  *
- * @author Student
+ * @author JShen
  */
 public class HistogramEqualization {
     static int rangeCount[] = new int [256];

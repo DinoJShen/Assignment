@@ -5,7 +5,6 @@
  */
 package imageprocessing;
 
-import static imageprocessing.DitheringPart2.finalList;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,7 +13,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author ASUS
+ * @author JShen
  */
 public class Convolution {
 
@@ -55,15 +54,15 @@ public class Convolution {
 
             for (int i = 0; i < tempList.size(); i++) {
                 if (tempList.get(i) != -1) {
-                    int sum = tempList.get(i - width - 1) * rotatedFormat[0][0]
-                            + tempList.get(i - width) * rotatedFormat[0][1]
-                            + tempList.get(i - width + 1) * rotatedFormat[0][2]
+                    int sum = tempList.get(i - width - 2 - 1) * rotatedFormat[0][0]
+                            + tempList.get(i - width - 2) * rotatedFormat[0][1]
+                            + tempList.get(i - width - 2 + 1) * rotatedFormat[0][2]
                             + tempList.get(i - 1) * rotatedFormat[1][0]
                             + tempList.get(i) * rotatedFormat[1][1]
                             + tempList.get(i + 1) * rotatedFormat[1][2]
-                            + tempList.get(i + width - 1) * rotatedFormat[2][0]
-                            + tempList.get(i + width) * rotatedFormat[2][1]
-                            + tempList.get(i - width + 1) * rotatedFormat[2][2];
+                            + tempList.get(i + width - 2 - 1) * rotatedFormat[2][0]
+                            + tempList.get(i + width - 2) * rotatedFormat[2][1]
+                            + tempList.get(i - width - 2 + 1) * rotatedFormat[2][2];
                     if (sum<0) sum = 0;
                     if (sum>255) sum = 255;
                     finalList.add(sum);
