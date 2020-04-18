@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 /**
  *
@@ -21,7 +22,9 @@ public class ReadTiff {
 
     public static void main(String[] args) throws FileNotFoundException {
         String formatHeader = "%-15s %-15s"; // formatter
-        String fileName = "yoda.tif";
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter Image Name: ");
+        String fileName = input.next();
         try (FileInputStream myInputFile = new FileInputStream(fileName)) {
             String byteOrder = String.format("%02x", myInputFile.read()) + String.format("%02x", myInputFile.read());
             System.out.println(String.format(formatHeader, "File Name", ":" + fileName));

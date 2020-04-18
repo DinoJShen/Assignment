@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -27,8 +28,11 @@ public class MeanFilter {
 
     public static void main(String[] args) {
         rotateMatrix(convolutionFormat); // rotate by 180 degree
-        String fileName = "yoda.raw";
-        int width = 123;
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter Image Name: ");
+        String fileName = input.next();
+        System.out.print("Enter Image Width: ");
+        int width = input.nextInt();
         String fileNameOutput = "MeanFilter_" + fileName;
         try (FileInputStream myInputFile = new FileInputStream(fileName)) {
             int dataValue = myInputFile.available();
@@ -71,7 +75,7 @@ public class MeanFilter {
             } catch (IOException ex) {
                 System.out.print("File output error!");
             }
-
+            System.out.println("Your output file name: "+fileNameOutput);
         } catch (IOException ex) {
             System.out.print("File Error!\n" + ex);
         }

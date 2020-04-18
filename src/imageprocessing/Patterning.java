@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  *
@@ -22,8 +23,11 @@ public class Patterning {
     static ArrayList<Integer> thirdRow = new ArrayList<>();
 
     public static void main(String[] args) {
-        String fileName = "Imgpro.raw";
-        int width = 122;
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter Image Name: ");
+        String fileName = input.next();
+        System.out.print("Enter Image Width: ");
+        int width = input.nextInt();
         ArrayList<Integer> finalList = new ArrayList<>();
         try (FileInputStream myInputFile = new FileInputStream(fileName)) {
             int value;
@@ -50,7 +54,7 @@ public class Patterning {
             } catch (IOException ex) {
                 System.out.print("File output error!");
             }
-
+            System.out.println("Your output file name: "+fileNameOutput);
         } catch (IOException ex) {
             System.out.print("File Error!\n" + ex);
         }

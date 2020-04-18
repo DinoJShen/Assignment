@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -25,8 +26,11 @@ public class Dithering {
         {240, 112, 208, 80}};
 
     public static void main(String[] args) {
-        String fileName = "chess.raw";
-        int width = 300;
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter Image Name: ");
+        String fileName = input.next();
+        System.out.print("Enter Image Width: ");
+        int width = input.nextInt();
         String fileNameOutput = "Dithering_" + fileName;
         try (FileInputStream myInputFile = new FileInputStream(fileName)) {
             int count = 0;
@@ -52,6 +56,7 @@ public class Dithering {
                     count = 0;
                 }
             }
+            System.out.println("Your output file name: "+fileNameOutput);
         } catch (IOException ex) {
             System.out.print("File Error!\n" + ex);
         }

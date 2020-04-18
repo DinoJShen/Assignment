@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.stream.IntStream;
 
 /*
@@ -22,9 +23,11 @@ public class HistogramEqualization {
     static int newGreylvl[] = new int [256];
     static ArrayList<Integer> finalList = new ArrayList<>();
     public static void main(String[] args){
-        String fileName = "lena_gray.raw";
-        try{
-            FileInputStream myInputFile = new FileInputStream(fileName);
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter Image Name: ");
+        String fileName = input.next();
+        
+        try(FileInputStream myInputFile = new FileInputStream(fileName)){
             int value;
             String formatter = "%-15s %-15s %-15s %-15s %-15s";
             while ((value = myInputFile.read()) != -1){
@@ -65,6 +68,7 @@ public class HistogramEqualization {
                 }else myOutputFile.write(str);
             }
             myOutputFile.close();
+            System.out.println("Your output file name: "+fileNameOutput);
         } catch (IOException ex) {
             System.out.print("File output error!");
         }
